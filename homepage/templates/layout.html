@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="{% block keywords %}Nicholas R. Peterson, Nicholas Peterson, Nick Peterson, math, mathematics, combinatorics, probability, statistics, data science, programming{% endblock %}">
+    <meta name="description" content="{% block description %}Homepage of Nicholas R. Peterson: Insight Fellow, Insight Data Science; Ph.D. in Mathematics, The Ohio State University{% endblock %}">
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='{{ url_for('static', filename='style.css') }}' rel='stylesheet' type='text/css'>
+    <title>{% block title %}Homepage of Nicholas R. Peterson{% endblock %}</title>
+    {% block scripts %}
+    {% endblock %}
+</head>
+
+<body>
+<div id="wrapper">
+<header>
+    {% block header %}
+    <h1>Nicholas R. Peterson</h1>
+    <p>Insight Fellow, Insight Data Science &#8226; Mathematics PhD, The Ohio State University</p>
+    {% endblock %}
+</header>
+
+{% include "nav.html" %}
+<div id="main">
+<aside>
+{% block sidebar %}
+<section>
+    <header>
+        <h1>Contact Information</h1>
+    </header>
+    <div id="me"><img src="{{url_for('static', filename='me.jpg')}}" alt="Me!"></div>
+    <dl>
+        <dt>Email</dt>
+        <dd><a href="mailto:nrpeterson@gmail.com">nrpeterson@gmail.com</a></dd>
+        <dt>Profiles</dt>
+        <dd>
+            <ul>
+                <li><a href="https://github.com/nrpeterson">GitHub</a></li>
+                <li><a href="http://www.linkedin.com/in/nrpeterson">LinkedIn</a></li>
+                <li><a href="http://stackexchange.com/users/2876998/nicholas-r-peterson?tab=accounts">Stack Exchange</a></li>
+            </ul>
+        </dd>
+    </dl>
+</section>
+{% endblock %}
+</aside>
+
+<div id="flashes">
+{% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+{% endfor %}
+</div>
+
+<div id="content">
+{% block content %}{% endblock %}
+</div>
+</div>
+{% include "footer.html" %}
+
+</div>
+</body>
+</html>

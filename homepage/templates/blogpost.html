@@ -1,0 +1,18 @@
+<article id="blog{{entry.id}}">
+    <header>
+        <h1>{{ entry.title }}</a></h1>
+        <time datetime="{{ entry.date }}">{{ entry.date.strftime('%B %d, %Y').replace(' 0', ' ') }}</time>
+    <nav>
+        <ul>
+            <li><a href="{{url_for('blog')}}post/{{entry.slug}}">Link</a></li>
+            {% if showcat != False %}
+            <li>Category: <a href="{{url_for('blog')+'category/'+entry.category.name.lower().replace(' ','_')}}">{{entry.category.name}}</a></li> 
+            {% endif %} 
+            {% if entry.keywords|length > 0 %}
+            <li>Keywords: {{kwlist(entry)}}</li>
+            {% endif %}
+        </ul>
+    </nav>
+    </header>
+    {{entry.body|markdown}}
+</article>
