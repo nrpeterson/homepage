@@ -9,4 +9,3 @@ db = SQLAlchemy(app)
 
 import homepage.views
 import homepage.database
-import homepage.auth
