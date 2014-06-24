@@ -1,0 +1,30 @@
+{% extends "layout/sidebar.html"%}
+{% block sidebar %}
+<section>
+    <header>
+        <h4 class="text-muted">Categories</h4>
+    </header>
+    <div class="list-group">{% for cat in categories %}
+        <a class="list-group-item" href="{{url_for('blog')+'category/'+cat.name.lower().replace(' ','_')}}">{{cat.name}}</a>{% endfor %}
+{% endblock %}
+
+{% block content %}
+{% for post in posts %}<article class="blog-post">
+    <header>
+        <h3 class="text-left"> {{post.title}}</h3>
+        <nav>
+            <ul class="list-inline text-muted">
+                <li>Posted: {{post.date.strftime("%B %d, %Y")}}</li>
+                <li>Permalink: <a href="{{url_for('blog')}}post/{{post.slug}}">Link</a></li>
+                {% if showcat != False %}
+                <li>Category: <a href="{{url_for('blog')+'category/'+post.category.name.lower().replace(' ','_')}}">{{post.category.name}}</a></li> 
+                {% endif %} 
+                {% if post.keywords|length > 0 %}
+                <li>Keywords: {{kwlist(post)}}</li>
+                {% endif %}
+            </ul>
+    </nav>
+    </header>
+    {{post.body|markdown}}
+</article>{% endfor %}
+{% endblock %}

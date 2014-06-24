@@ -1,0 +1,27 @@
+{% set nav_items = [
+            ('index','Home'),
+            ('blog','Blog')
+    ]
+%}
+<div class="container">
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <header class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand " href="/">Nicholas R. Peterson</a>
+            </header>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav nav-pills">
+                {% for target, title in nav_items %}
+                    <li {% if request.endpoint == target %} class="active" {% endif %}><a href="{{url_for(target)}}">{{title}}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>  
+    </nav>
+</div>

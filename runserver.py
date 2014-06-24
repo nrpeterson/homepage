@@ -1,2 +1,2 @@
 from homepage import app
-app.run()
+app.run(port=5050)

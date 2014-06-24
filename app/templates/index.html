@@ -1,0 +1,37 @@
+{% extends "layout/jumbotron.html" %}
+
+{% block title %}Nicholas R. Peterson - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <section class="col-md-4">
+            <header>
+                <h3>About Me</h3>
+            </header>    
+            <p>I am a fellow at <a href="http://www.insightdatascience.com">Insight Data Science</a>. Insight is a really exciting six-week program that helps scientists transition to new careers as Data Scientists in the tech industry.</p>
+            <p>My background is in Mathematics, specifically combinatorics and probability; I specialized in the study of random discrete structures and randomized algorithms.  I received my PhD from The Ohio State University in August 2013, under the direction of Prof. Boris Pittel.</p>
+        </section>
+        <section class="col-md-4">
+            <header>
+                <h3>Contact Info / Profiles</h3>
+            </header>
+            <div class="list-group">
+                <a class="list-group-item" href="mailto:nrpeterson@gmail.com">Email: nrpeterson@gmail.com</a>
+                <a class="list-group-item" href="https://www.github.com/nrpeterson">GitHub</a>
+                <a class="list-group-item" href="http://www.linkedin.com/in/nrpeterson">LinkedIn</a>
+                <a class="list-group-item" href="http://stackexchange.com/users/2876998/nicholas-r-peterson?tab=accounts">Stack Exchange</a>
+                <a class="list-group-item" href="http://careers.stackoverflow.com/nrpeterson">Stack Overflow Careers</a>
+            </div>
+        </section>
+        <section class="col-md-4">
+            <header>
+                <h3>Recent Blog Posts</h3>
+            </header>
+            <div class="list-group">{% for story in stories %}
+                <a class="list-group-item" href="{{url_for('blog') + 'post/' + story.slug}}">{{story.title}}</a>
+            {% endfor %}</div>
+        </section>
+    </div>
+</div>
+{% endblock %}
