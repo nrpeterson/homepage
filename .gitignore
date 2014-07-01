@@ -1,7 +1,9 @@
-venv/
+venv/*
+*.pid
 
 __pychache__/
 *.py[cod]
 
+simple.conf
 settings.cfg
 *.sql
