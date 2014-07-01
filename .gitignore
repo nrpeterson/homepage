@@ -1,3 +1,5 @@
+venv/
+
 __pychache__/
 *.py[cod]
 
