@@ -2,8 +2,13 @@
 {% block main %}
 <section class="jumbotron">
     <div class="container">
-        <h1>Nicholas R. Peterson</h1>
-        <p>Fellow, Insight Data Science &#8226; Mathematics PhD, The Ohio State University</p>
+        <div class="row">
+            <div class="col-md-3"><img src="{{url_for('static', filename='me.jpg')}}" style="width: 200px;" class="img-rounded"></div>
+            <div class="col-md-9">
+                <h1>Nicholas R. Peterson</h1>
+                <p>Fellow, Insight Data Science &#8226; Mathematics PhD, The Ohio State University</p>
+            </div>
+        </div>
     </div>
 </section>
 {% block content %}{% endblock %}
